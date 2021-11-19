@@ -31,3 +31,22 @@ const kLargeButtonTextStyle = TextStyle(
   fontSize: 28.0,
   fontWeight: FontWeight.bold,
 );
+
+const kResultTextStyle = TextStyle(
+  fontSize: 80.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kCategoryTextStyle = TextStyle(
+  fontSize: 30.0,
+  color: Color(0xFF20E97C),
+);
+
+const kBMITextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 100.0,
+);
+
+const kBodyTextStyle = TextStyle(
+  fontSize: 25.0,
+);
