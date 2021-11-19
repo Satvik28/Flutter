@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 enum Gender {
   male,
@@ -20,6 +21,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -123,28 +126,142 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPress: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              data: FontAwesomeIcons.plus,
+                            ),
+                            const SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundIconButton(
+                              onPress: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              data: FontAwesomeIcons.minus,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              onPress: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              data: FontAwesomeIcons.plus,
+                            ),
+                            const SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundIconButton(
+                              onPress: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              data: FontAwesomeIcons.minus,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ResultsPage(),
+                ),
+              );
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'CALCULATE',
+                style: kLargeButtonTextStyle,
+              ),
+              color: kBottomContainerColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+            ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final Function onPress;
+  final IconData data;
+  const RoundIconButton({required this.onPress, required this.data})
+      : super(key: null);
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      constraints: const BoxConstraints.tightFor(
+        width: kRoundIconButtonDim,
+        height: kRoundIconButtonDim,
+      ),
+      child: Icon(data),
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF4C4F5E),
+      onPressed: () {
+        onPress();
+      },
     );
   }
 }

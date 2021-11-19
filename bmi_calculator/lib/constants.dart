@@ -13,7 +13,8 @@ const double kSliderMaxHeight = 280.0;
 
 //Size Constants
 const kIconSize = 70.0;
-const double kBottomContainerHeight = 80.0;
+const double kBottomContainerHeight = 67.0;
+const double kRoundIconButtonDim = 56.0;
 
 //Text Styles
 const kLabelTextStyle = TextStyle(
@@ -24,4 +25,9 @@ const kLabelTextStyle = TextStyle(
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
+);
+
+const kLargeButtonTextStyle = TextStyle(
+  fontSize: 28.0,
+  fontWeight: FontWeight.bold,
 );
