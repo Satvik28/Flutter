@@ -5,7 +5,15 @@ import '../components/reusable_card.dart';
 import '../components/bottom_app_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+  const ResultsPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation})
+      : super(key: null);
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +30,10 @@ class ResultsPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+              alignment: Alignment.bottomLeft,
               child: const Text(
-                'Your Results',
+                'Your Result',
                 style: kResultTextStyle,
               ),
             ),
@@ -38,15 +47,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    resultText.toUpperCase(),
                     style: kCategoryTextStyle,
                   ),
                   Text(
-                    '25.6',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Please workout and eat healthy',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),

@@ -33,7 +33,7 @@ const kLargeButtonTextStyle = TextStyle(
 );
 
 const kResultTextStyle = TextStyle(
-  fontSize: 80.0,
+  fontSize: 60.0,
   fontWeight: FontWeight.bold,
 );
 
