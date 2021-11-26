@@ -1,7 +1,8 @@
-import 'dart:convert';
+import 'package:clima/services/networking.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
-import 'package:http/http.dart' as http;
+import 'location_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 const String apiKey = '0f3549a3d7cf73a08f62b46dd79fe1a6';
 
@@ -11,47 +12,41 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  double latitude;
-  double longitude;
   @override
   void initState() {
-    getLocation();
+    getLocationData();
     super.initState();
   }
 
-  void getLocation() async {
+  void getLocationData() async {
     Location location = Location();
     await location.getCurrentLocation();
-    latitude = location.latitude;
-    longitude = location.longitude;
-    print(latitude);
-    print(longitude);
-    getWeatherData();
-  }
+    NetworkHelper networkHelper = NetworkHelper(
+      'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric',
+    );
+    var weatherData = await networkHelper.getData();
 
-  void getWeatherData() async {
-    http.Response response = await http.get(
-      Uri.parse(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey',
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LocationScreen(
+            locationWeather: weatherData,
+          );
+        },
       ),
     );
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      var data = response.body;
-      var decodedData = jsonDecode(data);
-      String cityName = decodedData['name'];
-      double temperature = decodedData['main']['temp'];
-      String description = decodedData['weather'][0]['description'];
-      print(temperature);
-      print(cityName);
-      print(description);
-    } else {
-      print(response.statusCode);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100.0,
+        ),
+      ),
+    );
   }
 }
