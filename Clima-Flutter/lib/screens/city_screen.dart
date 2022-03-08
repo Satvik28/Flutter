@@ -34,16 +34,18 @@ class _CityScreenState extends State<CityScreen> {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.black,
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: TextField(
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                    decoration: kTextFieldInputDecoration,
+                    onChanged: (value) {
+                      cityName = value;
+                    },
                   ),
-                  decoration: kTextFieldInputDecoration,
-                  onChanged: (value) {
-                    cityName = value;
-                  },
                 ),
               ),
               TextButton(
