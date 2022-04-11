@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 150.0,
+                  height: 280.0,
                 ),
                 Container(
                   padding: const EdgeInsets.all(20.0),
@@ -72,20 +72,6 @@ class _MainScreenState extends State<MainScreen> {
                         },
                         child: const Icon(
                           Icons.list_alt_rounded,
-                          size: 80.0,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.add_box_outlined,
-                          size: 80.0,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.notifications_active,
                           size: 80.0,
                         ),
                       ),
