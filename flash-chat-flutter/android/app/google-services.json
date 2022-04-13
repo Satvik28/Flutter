@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "279956254092",
+    "project_id": "flash-chat-2e70b",
+    "storage_bucket": "flash-chat-2e70b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279956254092:android:993ee657669198aba03aa9",
+        "android_client_info": {
+          "package_name": "co.Satvik.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279956254092-abhejdvufg9qm54q9gf19108ev5t3hm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_tSddhdfPURfhFYGiQRQvQwMYjMEbm2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279956254092-abhejdvufg9qm54q9gf19108ev5t3hm0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
