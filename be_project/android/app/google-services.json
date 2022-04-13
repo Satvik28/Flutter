@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "733881716796",
+    "project_id": "be-project-a9430",
+    "storage_bucket": "be-project-a9430.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733881716796:android:b7aff4d043b3739e88f339",
+        "android_client_info": {
+          "package_name": "com.Sara.be_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733881716796-d8t88pgjq1ir5i5v979c4j4c4vk950q0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt7PGInikFyw3xntwcqs5TbOvJHx8mEjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733881716796-d8t88pgjq1ir5i5v979c4j4c4vk950q0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
